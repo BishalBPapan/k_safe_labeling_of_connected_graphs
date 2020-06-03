@@ -3,6 +3,8 @@ A python implementation of the algorithm for k-safe labeling of connected graphs
 
 The problem of k-safe labeling was introduced by Habiba et. al in 2015. In a k-safe labeling, we need to label all the vertices of a graph with distinct integers such that the labels of two adjacent vertices have a difference of at least k. The span of a k-safe labeling is the value of (maximum label used - minimum label used + 1). Here we have considered 1 as the minimum label.
 
+In a k-safe labeling problem, we need to k-safe label a graph with the minimum span. Habiba et. al have proved that this problem is NP-hard. We are suggesting a polynomial algorithm that will perform a k-safe labeling with a span which is not greater than a certain bound.
+
 Implementation tools and libraries:
 
 Language: Python
