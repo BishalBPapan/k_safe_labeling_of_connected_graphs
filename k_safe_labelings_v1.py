@@ -143,9 +143,12 @@ while not len(E_c)==0:                                                          
         checked[e[1]]=1
             
     #print(checked)
+    not_checked=[i for i in checked if checked[i]==0]
+    print(len(not_checked))
     
-    for node in nodes_reversed:                                                   #inner loop 2, label the unlabeled vertices in the reverse order of labels in previous step
-        if checked[node]==0:
+    if not len(not_checked)==0:
+        for node in not_checked:                                                   #inner loop 2, label the unlabeled vertices in the reverse order of labels in previous step
+            #if checked[node]==0:
             checked[node]=1
             for label in range(3,max_label+1):
                 if not violate_constraints(G2, label_now, k, node, label):        #------this for loop can be made efficient------#
