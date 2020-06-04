@@ -7,6 +7,10 @@ In a k-safe labeling problem, we need to k-safe label a graph with the minimum s
 
 Implementation tools and libraries:
 
-Language: Python
+Language: Python 3.x
 Libraries: networkx
 
+Input type:
+
+-Simple Connected Graph
+-Vertex indexed by integers, starting from 0
