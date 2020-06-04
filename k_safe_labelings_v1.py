@@ -113,34 +113,36 @@ while not len(E_c)==0:                                                          
     for e in edge_stack[::-1]:                                                    #inner loop 1, taking edges in the reverse order of input to stack
         #checked[e[0]]=1
         #checked[e[1]]=1
-        if checked[e[0]]==0 and checked[e[1]]==0:
+        if checked[e[0]]==0: #and checked[e[1]]==0:
             for label in range(1,max_label+1):                                    #because a vertex can be labeled with at most the max_label of the previous step
                 if not violate_constraints(G2, label_now, k, e[0], label):        #if both vertices incident to the edges are unlabeled, then label both with consecutive integers
                     label_now[e[0]]=label
-                    checked[e[0]]=1
+                    #checked[e[0]]=1
                     break
+        if checked[e[1]]==0:
             for label in range(1,max_label+1):                                    #because a vertex can be labeled with at most the max_label of the previous step
                 if not violate_constraints(G2, label_now, k, e[1], label):        #if both vertices incident to the edges are unlabeled, then label both with consecutive integers
                     label_now[e[1]]=label
-                    checked[e[1]]=1
+                    #checked[e[1]]=1
                     break
-        elif checked[e[0]]==0 and not checked[e[1]]==0:                          #if only one vertex is unlabeled, label that one
-            for label in range(1,max_label+1):  
-                if not violate_constraints(G2, label_now, k, e[0], label):
-                    label_now[e[0]]=label
-                    checked[e[0]]=1
-                    break
-        elif checked[e[1]]==0 and not checked[e[0]]==0:                          #if only one vertex is unlabeled, label that one
-            for label in range(1,max_label+1):  
-                if not violate_constraints(G2, label_now, k, e[1], label):
-                    label_now[e[1]]=label
-                    checked[e[1]]=1
-                    break
+        #elif checked[e[0]]==0 and not checked[e[1]]==0:                          #if only one vertex is unlabeled, label that one
+        #    for label in range(1,max_label+1):  
+        #        if not violate_constraints(G2, label_now, k, e[0], label):
+        #            label_now[e[0]]=label
+        #            checked[e[0]]=1
+        #            break
+        #elif checked[e[1]]==0 and not checked[e[0]]==0:                          #if only one vertex is unlabeled, label that one
+        #    for label in range(1,max_label+1):  
+        #        if not violate_constraints(G2, label_now, k, e[1], label):
+        #            label_now[e[1]]=label
+        #            checked[e[1]]=1
+        #           break
         #else:
             #continue
         checked[e[0]]=1
         checked[e[1]]=1
             
+    #print(checked)
     
     for node in nodes_reversed:                                                   #inner loop 2, label the unlabeled vertices in the reverse order of labels in previous step
         if checked[node]==0:
